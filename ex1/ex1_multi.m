@@ -54,6 +54,21 @@ fprintf('Normalizing Features ...\n');
 % Add intercept term to X
 X = [ones(m, 1) X];
 
+% theta = zeros(3, 1);
+% fprintf('\nTesting the cost function ...\n')
+% % compute and display initial cost
+% J = computeCostMulti(X, y, theta);
+% fprintf('With theta = [0 ; 0]\nCost computed = %f\n', J);
+% fprintf('Expected cost value (approx) 32.07\n');
+
+% % further testing of the cost function
+% % J = computeCostMulti(X, y, [-1 ; 2]);
+% % fprintf('\nWith theta = [-1 ; 2]\nCost computed = %f\n', J);
+% % fprintf('Expected cost value (approx) 54.24\n');
+
+% fprintf('Program paused. Press enter to continue.\n');
+% pause;
+
 
 %% ================ Part 2: Gradient Descent ================
 
@@ -82,7 +97,7 @@ X = [ones(m, 1) X];
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
-alpha = 0.01;
+alpha = 0.1;
 num_iters = 400;
 
 % Init Theta and Run Gradient Descent 
@@ -104,7 +119,8 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
-price = 0; % You should change this
+price = theta(1) + theta(2) * ((1650 - mu(1))/sigma(1)) + theta(3) * ((3 - mu(2))/sigma(2));
+
 
 
 % ============================================================
@@ -149,7 +165,7 @@ fprintf('\n');
 
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
-price = 0; % You should change this
+price = theta(1) + theta(2) * 1650 + theta(3) * 3; % You should change this
 
 
 % ============================================================
