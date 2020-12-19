@@ -31,7 +31,7 @@ for iter = 1:num_iters
      theta(2) = temp1;
      display(theta);
 
-     J = computeCost(X, y, theta)
+     J = computeCost(X, y, theta);
 
 
     % ============================================================

@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/octave
 # Edit at https://www.toptal.com/developers/gitignore?templates=octave
-
+token.mat
 ### Octave ###
 # Windows default autosave extension
 *.asv
