@@ -21,13 +21,16 @@ Predicted profit for a population of 70,000 = `45,342.45`
 
 
 ![Scatter ](https://i.imgur.com/sumKn7j.png)
+
 _Scatter plot of training data and Linear Regression_
 
 
 ![J](https://i.imgur.com/cTTNYD6.png)
+
 _Cost function J(ϴ) surface plot_
 
 ![J](https://i.imgur.com/9TlujIE.gif)
+
 _Cost function J(ϴ) contour plot showing minimum_
 
 
@@ -49,4 +52,5 @@ predict the prices of houses.
 Predicted price for a house with 1650 ft² and 3 beedrooms: `$293,081.46`
 
 ![J](https://i.imgur.com/bmjGvbL.png)
+
 _Convergence of gradient descent with an appropriate learning rate_
