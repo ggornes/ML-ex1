@@ -11,7 +11,7 @@ Recommender system, large scale machine learning
 Bias/variance, regularization, evaluation of learning algorithm, learning curves, error analysis, ceiling analysis.
 
 ## Course Programming Assignments
-### 1. Linear Regression
-### 2. Logistic Regression
+### [1. Linear Regression](https://github.com/ggornes/Machine-Learning-Course/tree/main/ex1)
+### [2. Logistic Regression](https://github.com/ggornes/Machine-Learning-Course/tree/main/ex2)
 
 
