@@ -20,3 +20,7 @@ Build a classification model that estimates an applicant's probability of admiss
 _Scatter plot of training data_
 
 ### _Results_
+![scatter_plot_boundary](https://i.imgur.com/WWVRuwx.png)
+_Scatter plot of training data with decision boundary_
+
+For a student with scores `45` and `85`, we predict an admission probability _`p(y = 1 | x; ϴ)`_ of `0.776289` 
