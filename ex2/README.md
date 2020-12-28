@@ -43,3 +43,36 @@ Implement regularized logistic regression to predict whether microchips from a f
 
 
 ![scatter_plot_data2](https://i.imgur.com/c2WDhQH.png)
+
+### _Results_
+
+| λ      | Train Accuracy | Comments                               |
+|--------|----------------|----------------------------------------|
+| 0      | 86.44          | No regularization (Overfitting)        |
+| 1      | 83.05          |
+| 10     | 74.57          |
+| 100    | 61.01          | Too much regularization (Underfitting) |
+
+
+
+
+
+![scatter_plot_boundary_lambda0](https://i.imgur.com/4xGelUL.png)
+
+_Scatter plot of training data with decision boundary with lambda = 0_
+
+
+![scatter_plot_boundary_lambda1](https://i.imgur.com/sqAlVwT.png)
+
+_Scatter plot of training data with decision boundary with lambda = 1_
+
+
+![scatter_plot_boundary_lambda10](https://i.imgur.com/o4ncfu5.png)
+
+_Scatter plot of training data with decision boundary with lambda = 10_
+
+
+![scatter_plot_boundary_lambda100](https://i.imgur.com/vIXuk7f.png)
+
+_Scatter plot of training data with decision boundary with lambda = 100_
+

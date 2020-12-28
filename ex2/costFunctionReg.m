@@ -31,11 +31,23 @@ for i = 1 : m
     sum1 = sum1 + (-y(i) * log(sigmoid(X(i, :) * theta)) - (1 - y(i)) * log(1 - sigmoid(X(i, :) * theta)) );
 end
 
-display(sum1);
-display(sum2);
-
-
 J = (1/(m)) * sum1 + lambda/(2*m) * sum2;
+
+
+% Calculate gradients
+
+for j = 1 : n
+    for i = 1 : m
+        % if (j == 1)
+        %     grad(j) = grad(j) + (1/m) * (sigmoid(X(i, :) * theta) -y(i)) * X(i,j);
+        % else
+        %     grad(j) = grad(j) + (1/m) * (sigmoid(X(i, :) * theta) -y(i)) * X(i,j) + (lambda/m) * theta(j);
+        grad(j) = grad(j) + (1/m) * (sigmoid(X(i, :) * theta) -y(i)) * X(i,j);
+    end
+    if (j != 1)
+        grad(j) = grad(j) + (lambda/m) * theta(j);
+end
+
 
 
 
