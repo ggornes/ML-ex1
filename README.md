@@ -13,5 +13,6 @@ Bias/variance, regularization, evaluation of learning algorithm, learning curves
 ## Course Programming Assignments
 ### [1. Linear Regression](https://github.com/ggornes/Machine-Learning-Course/tree/main/ex1)
 ### [2. Logistic Regression](https://github.com/ggornes/Machine-Learning-Course/tree/main/ex2)
+### [3. Multi-class Classification and Neural Networks](https://github.com/ggornes/Machine-Learning-Course/tree/main/ex3)
 
 
