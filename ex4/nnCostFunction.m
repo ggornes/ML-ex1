@@ -27,8 +27,8 @@ m = size(X, 1);
          
 % You need to return the following variables correctly 
 J = 0;
-Theta1_grad = zeros(size(Theta1));
-Theta2_grad = zeros(size(Theta2));
+Theta1_grad = zeros(size(Theta1)); % 25x401
+Theta2_grad = zeros(size(Theta2)); % 10x26
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should complete the code by working through the
@@ -38,6 +38,71 @@ Theta2_grad = zeros(size(Theta2));
 %         variable J. After implementing Part 1, you can verify that your
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
+
+X = [ones(m, 1) X];
+% A = ones(size(X,1), size(X,2))';
+yv=[1:num_labels] == y;
+
+sum1 = 0;
+reg = 0;
+reg_theta1 = 0;
+reg_theta2 = 0;
+
+
+
+for i = 1 : m
+    
+    %% A1 = [ones(m, 1) X];
+    A1 = X(i,:); % 1x401
+    Z2 = Theta1 * A1'; % 25x1
+    A2 = sigmoid(Z2); % 25x1
+    A2 = A2'; % 1x25
+    %% A2 = [ones(m, 1) A2];
+    A2 = [ones(size(A2, 1), 1) A2]; % 1x26
+    Z3 = Theta2*A2'; % 10x1
+    A3 = sigmoid(Z3); % 10x1
+
+    sum2 = 0;
+    for k = 1 : num_labels
+        sum2 = sum2 + yv(i,k)' * log(A3(k)) + (1 - yv(i,k)') * log(1 - A3(k));        
+    end
+
+    sum1 = sum1 + sum2;
+
+
+    %%%%%%%%%%%%%%%%%%%
+
+    % delta3 = round(A3) - yv(i,:)'; % 10x1
+    % delta2 = (Theta2' * delta3) .* A2 .* (1 - A2); % 26x26
+
+
+    % Theta1_grad = Theta1_grad + delta2 * A1';
+    % Theta2_grad = Theta2_grad + delta3 * A2';
+
+    %%%%%%%%%%%%%%%%%
+end
+
+for j = 1 : hidden_layer_size % 1:25 
+    for k = 2 : (input_layer_size + 1) % 2:401
+        reg_theta1 = reg_theta1 + (Theta1(j,k))^2;
+    end
+end
+
+for j = 1: num_labels % 1:10 
+    for k = 2 : (hidden_layer_size + 1) % 2:26
+        reg_theta2 = reg_theta2 + (Theta2(j,k))^2;
+    end
+end
+
+
+reg = reg_theta1 + reg_theta2;
+
+
+
+
+J = -(1/m) * sum1 + (lambda/(2*m))*reg;
+
+
 %
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
