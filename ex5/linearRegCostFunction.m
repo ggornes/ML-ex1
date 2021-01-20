@@ -21,18 +21,13 @@ grad = zeros(size(theta));
 
 n = size(X)(2); % number of features
 
-sum1 = 0;
-sum2 = 0;
-
-for i = 1 : m
- sum1 = sum1 + (theta(1) + theta(2)*X(:,2)(i) - y(i))^2;
-end
+reg = 0;
 
 for j = 2 : n
-    sum2 = sum2 + theta(j)^2;
+    reg = reg + theta(j)^2;
 end
 
-J = (1/(2*m)) * sum1 + lambda/(2*m) * sum2;
+J = 1/(2*m) * (X*theta - y)' * (X*theta - y) + lambda/(2*m) * reg;
 
 
 
@@ -40,10 +35,6 @@ J = (1/(2*m)) * sum1 + lambda/(2*m) * sum2;
 
 for j = 1 : n
     for i = 1 : m
-        % if (j == 1)
-        %     grad(j) = grad(j) + (1/m) * (sigmoid(X(i, :) * theta) -y(i)) * X(i,j);
-        % else
-        %     grad(j) = grad(j) + (1/m) * (sigmoid(X(i, :) * theta) -y(i)) * X(i,j) + (lambda/m) * theta(j);
         grad(j) = grad(j) + (1/m) * (X(i, :) * theta -y(i)) * X(i,j);
     end
     if (j != 1)
