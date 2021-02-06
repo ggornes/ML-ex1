@@ -20,6 +20,34 @@ idx = zeros(size(X,1), 1);
 %
 % Note: You can use a for-loop over the examples to compute this.
 %
+m = size(X, 1);
+
+% for i = 1 : 7
+%     for j = 1 : size(centroids, 1)
+%         temp_min = norm(X(i,:) - centroids(1,:));
+%         display(temp_min);
+%         if (norm(X(i,:) - centroids(j,:))) <= temp_min
+%             idx(i) = j;
+%             temp_min = norm(X(i,:) - centroids(j,:));
+%         end
+%     end
+
+for i = 1 : m
+    
+    for j = 1 : size(centroids, 1)
+
+        if j == 1
+            temp_min = norm(X(i,:) - centroids(j,:))^2;
+        end
+
+        if (norm(X(i,:) - centroids(j,:))^2) <= temp_min
+            idx(i) = j;
+            temp_min = norm(X(i,:) - centroids(j,:))^2;
+        end
+    end
+
+end
+
 
 
 

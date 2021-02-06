@@ -26,8 +26,23 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+centroids_matrix = zeros(m, K);
 
+for i = 1 : m
+    if idx(i) == 1
+        centroids_matrix(i,1) = 1;
+    else
+        if idx(i) == 2
+            centroids_matrix(i,2) = 1;
+        else
+            centroids_matrix(i,3) = 1;
+        end
+    end
+end
 
+centroids(1,:) = (X'*centroids_matrix(:,1))/sum(centroids_matrix(:,1) == 1);
+centroids(2,:) = (X'*centroids_matrix(:,2))/sum(centroids_matrix(:,2) == 1);
+centroids(3,:) = (X'*centroids_matrix(:,3))/sum(centroids_matrix(:,3) == 1);
 
 
 
